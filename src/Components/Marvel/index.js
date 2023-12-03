@@ -4,7 +4,7 @@ import "./style.css"
 import { useState, useEffect } from "react";
 
   const Marvel = () => {
-    const [url,setUrl] = useState("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504");
+    const [url,setUrl] = useState("https://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504");
 
     const [data, setData] = useState([]);
 

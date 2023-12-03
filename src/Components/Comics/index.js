@@ -5,14 +5,14 @@ import ComicsCard from "../ComicsCard";
 const Comics = () => {
 const [optionsState, SetoptionsState]=useState(2000)
  
-const [urls,setUrls] = useState(`http://gateway.marvel.com/v1/public/comics?dateRange=2000-01-01,2000-12-30&ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504`)
+const [urls,setUrls] = useState(`https://gateway.marvel.com/v1/public/comics?dateRange=2000-01-01,2000-12-30&ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504`)
 const[data,setData] = useState([])
  
  
 
 function HandleClick(){
   
-  setUrls(`http://gateway.marvel.com/v1/public/comics?startYear=2023&ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504`)
+  setUrls(`https://gateway.marvel.com/v1/public/comics?startYear=2023&ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504`)
 
 }
 
@@ -20,12 +20,12 @@ function HandleClick(){
 
 function HandleClick2(){
   
-  setUrls(`http://gateway.marvel.com/v1/public/comics?startYear=2018&ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504`)
+  setUrls(`https://gateway.marvel.com/v1/public/comics?startYear=2018&ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504`)
 
 }
 function HandleClick3(){
   
-  setUrls(`http://gateway.marvel.com/v1/public/comics?startYear=2008&ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504`)
+  setUrls(`https://gateway.marvel.com/v1/public/comics?startYear=2008&ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504`)
 
 }
 
@@ -33,7 +33,7 @@ function dataFunc(e)
 {
   SetoptionsState(e.target.value)
 
-  setUrls(`http://gateway.marvel.com/v1/public/comics?startYear=${optionsState}&ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504`)
+  setUrls(`https://gateway.marvel.com/v1/public/comics?startYear=${optionsState}&ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504`)
 
 
 }
