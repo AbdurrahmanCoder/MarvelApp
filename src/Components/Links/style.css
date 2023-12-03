@@ -1,0 +1,27 @@
+.HeaderLinks
+
+{
+background-color:#ED1D24;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+ align-content: center;
+}
+
+ .LINKS{
+
+text-decoration: none;
+
+padding: 10px;
+margin:10px;
+
+  }
+    .LINKS img {
+
+width: 200px;
+height: 90px;
+    max-width: 100%;
+    margin: 20px;
+      } 
+
+ 

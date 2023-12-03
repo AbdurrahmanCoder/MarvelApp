@@ -1,0 +1,32 @@
+
+.ComicCard{
+    background-color: black;
+    width: 100%;
+    height: 100%; 
+    display: flex; 
+  
+   top: 0; 
+     left: 0; 
+    opacity: 0.93;
+    position: fixed;
+color:red;
+} .InsImage{
+    height: 90vh;
+    width: 25%;
+ } 
+
+
+.SecondDivPara{
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+
+
+.para{
+    color: white;
+    width: 40%;
+ padding: 20px;
+ 
+
+} 

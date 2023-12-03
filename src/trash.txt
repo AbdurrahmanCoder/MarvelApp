@@ -1,0 +1,212 @@
+ 
+import React from "react";
+import "./style.css"
+  //  import axios from "axios";
+import Character from "../Character";
+import axios from "axios";
+import { useState, useEffect } from "react";
+
+  const Marvel = () => {
+
+    const [data, setData] = useState(null);
+    const [search, setSearch] = useState(""); 
+
+    useEffect(() => {
+
+      const fetchData = async () => {
+        // const response = await axios.get(
+        //   "https://marvelbackend.herokuapp.com/characters"
+        // );
+
+        const response = await axios.get("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504" );
+
+//  setData(data)
+        console.log(response.data);
+        const modifiedData = response.data
+        // const modifiedData = response.data.splice(0, 100).filter((el) => {
+        //   return el.name.includes(search);
+        // });
+        setData(modifiedData);
+      };
+  
+      fetchData();
+    }, [search]);
+  
+          
+    
+    return (
+ <div>
+ 
+
+<div className="HeroSec" > 
+  {/* <input
+        type="text"
+        value={search}
+        placeholder= "Enter Your Character "
+        onChange={(event) => {
+          setSearch(event.target.value);
+        }}
+      />   */}
+</div>
+ {/* {data !== null ? <Character data={data} /> : null}      */}
+
+
+<div>  
+{data.map(per => ( 
+
+<img src={`${per.thumbnail.path}.${per.thumbnail.extension}`}/> 
+
+))
+
+
+
+}
+{/* "http://i.annihil.us/u/prod/marvel/i/mg/a/f0/5202887448860" */}
+{/* {data !== null ? <Character data={data} /> : null} */}
+
+{/* {data.thumbnail.path === "http://i.annihil.us/u/prod/marvel/i/mg/a/f0/5202887448860" ? null  : <Character data={data}/>} */}
+
+</div>
+ </div>
+
+
+);
+};
+ 
+
+// new code starts here;;;;
+
+// const Marvel = () => {
+  
+//   const[data,setData] = useState([]);
+  
+
+//   useEffect(()=>{   
+//   axios.get("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504" ).then(res=>{
+//     setData(res.data)
+//      console.log(res.data) 
+//   }).catch(error=>console.log(error))
+  
+
+// },[])         
+// return(
+// <div>
+// {data.Map(per => ( 
+
+// <img src={`${per.thumbnail.path}.${per.thumbnail.extension}`}/> 
+
+// ))
+
+
+
+// }
+  
+// </div>
+// )}
+
+
+
+export default Marvel;
+
+
+//604377c79528245998de639e0312199b
+
+
+//http://gateway.marvel.com/v1/public/comics?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504
+
+
+
+
+//
+marvel 
+
+import React from "react";
+import "./style.css"
+  //  import axios from "axios";
+  import Character from "../Character";
+// import axios from "axios"; 
+import { useState, useEffect } from "react";
+import {FaQuestionCircle}  from "react-icons/fa";
+
+  const Marvel = () => {
+    const [url,setUrl] = useState("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504");
+
+    const [data, setData] = useState([]);
+
+    const [datachange , setDatachange] = useState("");
+
+   const [ideas,SetIdeas]= useState();
+
+
+    // const [search, setSearch] = useState(""); 
+
+//   fetch("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504")
+ 
+
+  // axios.get("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504") 
+
+ 
+  function change (e) {
+
+    setDatachange(e.target.value)
+
+} 
+  
+     const searchMarvel=()=>{
+        setUrl(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${datachange}&ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504`)
+      }
+  
+    
+ 
+  useEffect(() => {
+    fetch(url)
+      .then(response => response.json())
+      .then(data => setData(data.data.results))
+      // window.removeEventListener('click', changefunc);
+     
+    }, [url]);
+    console.log(data)
+
+    
+
+//  window.addEventListener('click', changefunc);
+
+
+    return (
+ <> 
+ <div  onClick={closefunc} className="Image__Divi">
+        {/* <img src="wp3311548.jpg"/> */}
+        
+ 
+<div className= "Main__searchbar" >
+<input  className= "input__search" type ="text" placeholder="ENTER YOU FAVORITE CHARACTER" onChange={change} onKeyUp={searchMarvel} />
+<button className="button"  onClick={changefunc} >< FaQuestionCircle  className="Iconics" /> </button>
+{ ideas && (
+<div className="dialogBox" onClick={changefunc} style={{background:"red"}}>
+  <div className="dialogBox2">
+<ul>
+<li>spider-man  </li>
+<li>Iron man  </li>
+<li>Hulk</li>
+<li>black panther</li>
+
+</ul>
+</div>
+
+
+</div> 
+)}
+
+</div>
+</div>
+
+       {data !== null ? <Character data={data} /> : null} 
+</>
+
+    );
+  }
+  
+
+export default Marvel;
+
+marvel ends here //

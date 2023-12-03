@@ -1,0 +1,58 @@
+*{
+ padding: 0;
+ margin: 0;   
+ 
+}
+
+body{
+    overflow-x: hidden;
+    width: 100vw;
+}
+.Main__div{
+ display: grid;  
+width: 100vw;
+  grid-template-columns:1fr 1fr 1fr 1fr  1fr ;  
+   grid-template-rows: 1fr 1fr; 
+gap: 0;
+ padding: 10px;
+ 
+}
+
+ img{
+    width:200px;
+    height: 400px;
+
+    margin: 10px;
+}
+
+ 
+
+.form-select{
+   
+    justify-content: center;
+    background-color:#393737;
+    margin: 10px;
+width: 100vw; 
+margin: 0;
+} 
+ 
+button{
+    width: 200px;
+    height: 30px;
+margin: 10px;
+}
+
+
+
+button:hover{
+    cursor: pointer;
+}
+ 
+
+.select{
+    align-self: flex-end;
+    width: 200px;
+    height: 30px;
+margin: 10px;
+font-size: 15px;
+}

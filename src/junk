@@ -1,0 +1,375 @@
+ 
+import React from "react";
+import "./style.css"
+  //  import axios from "axios";
+  import Character from "../Character";
+// import axios from "axios"; 
+import { useState, useEffect } from "react";
+
+  const Marvel = () => {
+
+    const [data, setData] = useState([]);
+    // const [search, setSearch] = useState(""); 
+
+//   fetch("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504")
+ 
+
+  // axios.get("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504") 
+
+  
+
+  useEffect(() => {
+    fetch("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504")
+      .then(response => response.json())
+      .then(data => setData(data.data.results));
+      
+      
+    }, []);
+    console.log(data)
+ 
+ 
+
+
+
+    return (
+      <div>
+         <p>clears </p> 
+
+
+        {data !== null ? <Character data={data} /> : null} 
+
+
+  {/* {data.map(item => (
+  <img src={item.thumbnail.path+"."+ item.thumbnail.extension} /> 
+//< p>{item.thumbnail.path}.{item.thumbnail.extension}</p> 
+
+))}   */}
+
+    
+      </div>
+    );
+  }
+  
+
+export default Marvel;
+
+
+
+
+
+
+
+
+ {/* {data.results.map(per => {
+
+<img src={`${per.thumbnail.path}.${per.thumbnail.extension}`}/> 
+
+})} */}
+
+
+
+
+{junk of comics }
+
+import React from "react";
+import './style.css';
+import { useState, useEffect } from "react";
+import ComicsPrint from "../ComicsPrint";
+
+const Comics = () => {
+//comics/{comicId}/characters
+//first one is wor
+ const [urls,setUrls] = useState("http://gateway.marvel.com/v1/public/comics?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504")
+
+ //const [urls,setUrls] = useState("http://gateway.marvel.com/v1/public/comics{376}/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504")
+//const [urls,setUrls] = useState("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504")
+
+const[data,setData] = useState([])
+
+  
+  useEffect(() => {
+    fetch(urls)
+  .then(response => response.json())
+  //  .then(data => setData(data.data.results[1].comics.items[0].resourceURI));
+ // .then(data => setData(data.data.results[0].thumbnail.path));
+     .then(data => setData(data.data.results)); 
+    }, [urls]);
+console.log(data) 
+    // console.log(data.results[19].description)
+
+    return (
+ <div>
+
+
+  <p>life </p> 
+ <ul>
+{data.map((country,index) => ( 
+
+ <li key={index}>{country.series.name}</li>
+
+
+))
+
+
+}
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+ 
+  {/* {data !== null ? <ComicsPrint datas={data} /> : null} 
+
+  */}
+
+</div>
+);
+
+
+ 
+
+};
+export default Comics; 
+
+
+
+
+
+
+
+
+
+
+////junk of comics 
+
+
+import React from "react";
+import './style.css';
+import { useState, useEffect } from "react";
+import ComicsPrint from "../ComicsPrint";
+
+const Comics = () => {
+//comics/{comicId}/characters
+//first one is wor
+ const [urls,setUrls] = useState("http://gateway.marvel.com/v1/public/comics?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504")
+
+ //const [urls,setUrls] = useState("http://gateway.marvel.com/v1/public/comics{376}/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504")
+//const [urls,setUrls] = useState("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504")
+
+const[data,setData] = useState([])
+
+  
+  useEffect(() => {
+    fetch(urls)
+  .then(response => response.json())
+  //  .then(data => setData(data.data.results[1].comics.items[0].resourceURI));
+ // .then(data => setData(data.data.results[0].thumbnail.path));
+     .then(data => setData(data.data.results)); 
+    }, [urls]);
+console.log(data) 
+    // console.log(data.results[19].description)
+
+    return (
+ <div className="Main__div"> 
+ 
+{data.map((collec,index) => ( 
+ 
+//  <p>{collec.thumbnail.path}</p>
+
+
+<img src={collec.thumbnail.path + "." + collec.thumbnail.extension  } />  
+
+
+
+))
+
+
+}
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+  {/* {data !== null ? <ComicsPrint datas={data} /> : null} 
+
+  */}
+
+</div>
+);
+
+
+ 
+
+};
+export default Comics; 
+
+
+
+
+
+////junk ends here
+
+
+
+
+
+
+
+
+
+
+
+
+
+// junk of marvel 
+import React from "react";
+import "./style.css"
+  //  import axios from "axios";
+  import Character from "../Character";
+// import axios from "axios"; 
+import { useState, useEffect } from "react";
+import {FaQuestionCircle}  from "react-icons/fa";
+
+  const Marvel = () => {
+    const [url,setUrl] = useState("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504");
+
+    const [data, setData] = useState([]);
+
+    const [datachange , setDatachange] = useState("");
+
+   const [ideas,SetIdeas]= useState();
+
+
+    // const [search, setSearch] = useState(""); 
+
+//   fetch("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504")
+ 
+
+  // axios.get("http://gateway.marvel.com/v1/public/characters?ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504") 
+
+ 
+  function change (e) {
+
+    setDatachange(e.target.value)
+
+} 
+  
+     const searchMarvel=()=>{
+        setUrl(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${datachange}&ts=1&apikey=034694b1c270bde129c2a36ad958a13d&hash=84aecccbcfa5078f1e9a557e023d1504`)
+      }
+  
+    
+ 
+  useEffect(() => {
+    fetch(url)
+      .then(response => response.json())
+      .then(data => setData(data.data.results))
+      // window.removeEventListener('click', changefunc);
+     
+    }, [url]);
+    console.log(data)
+
+    
+    function changefunc (){
+  if(!ideas)
+{
+  SetIdeas(true)
+}
+else {
+  SetIdeas(false)
+
+}
+
+}
+  
+function closefunc (){
+  if(ideas)
+{
+  SetIdeas(false)
+}
+
+}
+ 
+
+//  window.addEventListener('click', changefunc);
+
+
+    return (
+ <> 
+ <div  onClick={closefunc} className="Image__Divi">
+        {/* <img src="wp3311548.jpg"/> */}
+        
+ 
+<div className= "Main__searchbar" >
+<input  className= "input__search" type ="text" placeholder="ENTER YOU FAVORITE CHARACTER" onChange={change} onKeyUp={searchMarvel} />
+<button className="button"  onClick={changefunc} >< FaQuestionCircle  className="Iconics" /> </button>
+{ ideas && (
+<div className="dialogBox" onClick={changefunc} style={{background:"red"}}>
+  <div className="dialogBox2">
+<ul>
+<li>spider-man  </li>
+<li>Iron man  </li>
+<li>Hulk</li>
+<li>black panther</li>
+
+</ul>
+</div>
+
+
+</div> 
+)}
+
+</div>
+</div>
+
+       {data !== null ? <Character data={data} /> : null} 
+</>
+
+    );
+  }
+  
+
+export default Marvel;
+
+
+
+junk of marvel ends here 
+
+
+
+// function to add hint 
+
+function changefunc (){
+  if(!ideas)
+{
+  SetIdeas(true)
+}
+else {
+  SetIdeas(false)
+
+}
+
+}
+  
+function closefunc (){
+  if(ideas)
+{
+  SetIdeas(false)
+}
+
+}
+ 
