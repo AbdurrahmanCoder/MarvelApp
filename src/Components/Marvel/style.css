@@ -46,9 +46,8 @@ align-content: center;
 
 
 .Image__Divi
- 
 {
-    background-image: url("C:\FRONTEND\marvelapp-master\public\wp3311548.jpg");
+    background-image: url("../../../public/wp3311548.jpg");   
     width:100% ;
      height:300Px; 
      background-repeat: no-repeat;
